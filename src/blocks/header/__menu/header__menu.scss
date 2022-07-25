@@ -1,0 +1,30 @@
+.header__menu {
+    background-color: #fff;
+    border: 1px solid #4a4a4a78;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -100px;
+    bottom: -215%;
+    min-width: min-content;
+    width: 225px;
+    height: min-content;
+    margin: 0;
+    padding: 0;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        margin: 8px 0 8px 10px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+}

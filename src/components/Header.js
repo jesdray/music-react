@@ -1,15 +1,22 @@
 import React from "react";
-import logo from "../images/logo.svg"
 
 export default function Header() {
 
     return (
         <header className="header">
-            <img className="header__logo" src={logo} />
-            <div className="header__user">
-                <img className="header__user-avatar" src="https://i.pinimg.com/736x/fb/5e/63/fb5e63c1356eeeccd3da4536faf26aaf.jpg" alt="Картинка"></img>
-                <p className="header__user-name">Никнейм</p>
-                <button className="header__sattings">Настройки</button>
+            <div className="header__box">
+                <h1 className="header__logo" >Music</h1>
+                <div className="header__user">
+                    <img className="header__user-avatar" src="http://almode.ru/uploads/posts/2021-12/1639128648_43-almode-ru-p-devushki-vnovodnikh-platyakh-46.jpg" alt="Картинка"></img>
+                    <button className="header__settings"></button>
+                    <menu className="header__menu">
+                        <ul className="header__ul">
+                            <li className="header__li">asdasd</li>
+                            <li className="header__li">asdasdasd</li>
+                            <li className="header__li">asdasdasdasadsda</li>
+                        </ul>
+                    </menu>
+                </div>
             </div>
         </header>
     )

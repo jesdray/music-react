@@ -1,8 +1,53 @@
 .header {
-    width: 92%;
-    margin: auto;
+    display: flex;
+    width: 100%;
+    min-height: 60px;
+    border-bottom: 1px solid #4a4a4a78;
+    background-color: #fff;
+
+    &__box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: auto;
+    }
+
+    &__logo {
+        margin: 10px 0;
+        padding: 0;
+        color: #4a4a4a90;
+    }
+
+    &__logo::before{
+        content: "Hot-";
+        color: #e0000090;
+    }
 
     &__user {
         display: flex;
+        position: relative;
+        align-items: center;
+        width: min-content;
+    }
+
+    &__user:hover &__settings {
+        transform: rotate(120deg);
+    }
+
+    &__user-avatar {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+    &__settings {
+        background-image: url(../../images/settings_icon.svg);
+        background-color: #fff0;
+        width: 40px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.4s ease;
     }
 }
