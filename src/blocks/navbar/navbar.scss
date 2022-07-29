@@ -1,0 +1,22 @@
+.nav {
+    display: flex;
+    padding-left: 20px;
+
+    &__link {
+        font-size: 18px;
+        text-decoration: none;
+        color: #000;
+        margin: 10px;
+
+        &-active {
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            font-size: 115%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}

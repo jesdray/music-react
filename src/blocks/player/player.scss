@@ -1,0 +1,44 @@
+@mixin button($url) {
+    background-image: url($url);
+
+    @content;
+}
+
+$btnImg: 'on''../../images/play_icon.svg',
+    'off''../../images/pause_icon.svg',
+    'next''../../images/next_icon.svg',
+    'back''../../images/next_icon.svg';
+
+
+
+.player {
+    display: flex;
+    justify-content: center;
+    width: min-content;
+
+    @each $btnName,
+    $urlImg in $btnImg {
+        .player__btn-#{$btnName} {
+            @include button($urlImg)
+        }
+    }
+
+    &__btn {
+        display: none;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: #fff0;
+        width: 30px;
+        height: 30px;
+        border: none;
+        margin: 8px;
+
+        &-back {
+            transform: rotate(180deg);
+        }
+
+        &-active {
+            display: block;
+        }
+    }
+}

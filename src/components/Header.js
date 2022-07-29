@@ -1,21 +1,51 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import ClickAwayListener from "react-click-away-listener";
+import { useDispatch, useSelector } from "react-redux";
+
+
+import Navbar from "./Navbar";
+import Player from "./Player";
+import { data } from "../utils/utils"
 
 export default function Header() {
+    const dispatch = useDispatch()
+    const darkThem = useSelector(state => state.darkThem)
+    const [menuOpen, setMenuOpen] = React.useState(false);
+    const menuClass = menuOpen ? "header__menu header__menu_active" : "header__menu";
+
+    function openCloseMenu() {
+        setMenuOpen(!menuOpen);
+    }
+
+    function closeMenu(e) {
+        if (e.target.className !== "header__settings" & menuOpen) {
+            setMenuOpen(false)
+        }
+    }
 
     return (
         <header className="header">
-            <div className="header__box">
-                <h1 className="header__logo" >Music</h1>
+            <div className="header__box header__box-big">
+                <div className="header__box header__box-small">
+                    <NavLink to="/" className="header__logo" ><span className="header__span">Hot-</span>Music</NavLink>
+                    <Navbar />
+                    <Player
+                        key='1'
+                        music={data.music}
+                    />
+                </div>
                 <div className="header__user">
-                    <img className="header__user-avatar" src="http://almode.ru/uploads/posts/2021-12/1639128648_43-almode-ru-p-devushki-vnovodnikh-platyakh-46.jpg" alt="Картинка"></img>
-                    <button className="header__settings"></button>
-                    <menu className="header__menu">
-                        <ul className="header__ul">
-                            <li className="header__li">asdasd</li>
-                            <li className="header__li">asdasdasd</li>
-                            <li className="header__li">asdasdasdasadsda</li>
-                        </ul>
-                    </menu>
+                    <img className="header__user-avatar" src="https://catherineasquithgallery.com/uploads/posts/2021-02/1613449390_71-p-fon-dlya-prezentatsii-pro-vulkani-91.jpg" alt="Картинка"></img>
+                    <button className="header__settings" onClick={openCloseMenu}></button>
+                    <ClickAwayListener onClickAway={closeMenu}>
+                        <menu className={menuClass}>
+                            <button className="header__menu-btn">
+                                Тема <span className="header__span">{darkThem === "light" ? 'Светлая' : 'Темная'}</span>
+                            </button>
+                            <NavLink to='/settings' className="header__menu-link">Настройки</NavLink>
+                        </menu>
+                    </ClickAwayListener>
                 </div>
             </div>
         </header>

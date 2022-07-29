@@ -1,30 +1,45 @@
 .header__menu {
     background-color: #fff;
-    border: 1px solid #4a4a4a78;
-    border-radius: 10px;
-    display: flex;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 10px 10px;
+    display: none;
     flex-direction: column;
     position: absolute;
     left: -100px;
-    bottom: -215%;
-    min-width: min-content;
+    bottom: -223%;
     width: 225px;
-    height: min-content;
     margin: 0;
     padding: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+    &_active {
+        opacity: 1;
+        display: flex;
     }
-    
-    li {
-        margin: 8px 0 8px 10px;
+
+    &-btn {
+        background-color: #fff;
+        font-size: 18px;
+        border: none;
+        margin: 0;
+        padding: 5px 0 5px 5px;
+        text-align: left;
 
         &:hover {
-            opacity: 0.8;
+            background-color: #ECEDEF;
         }
     }
 
+    &-link {
+        padding: 5px 0 5px 8px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #000;
+
+        &:hover {
+            background-color: #ECEDEF;
+            border-radius: 0 0 10px 10px;
+        }
+    }
 }
