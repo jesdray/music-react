@@ -1,7 +1,15 @@
-@mixin button($url) {
+@mixin button($url, $name) {
     background-image: url($url);
 
+    @if ($name =='back') {
+        transform: rotate(180deg);
+    }
+
     @content;
+}
+
+@mixin volume($url) {
+    background-image: url($url);
 }
 
 $btnImg: 'on''../../images/play_icon.svg',
@@ -9,36 +17,110 @@ $btnImg: 'on''../../images/play_icon.svg',
     'next''../../images/next_icon.svg',
     'back''../../images/next_icon.svg';
 
+$volumeImg: 'medium''../../images/volume_icon_medium.svg',
+    'off''../../images/volume_icon_off.svg';
 
 
 .player {
     display: flex;
     justify-content: center;
-    width: min-content;
+    padding-left: 20px;
 
     @each $btnName,
     $urlImg in $btnImg {
         .player__btn-#{$btnName} {
-            @include button($urlImg)
+            @include button($urlImg, $btnName)
         }
+    }
+
+    @each $name,
+    $url in $volumeImg {
+        .player__volume-#{$name} {
+            @include volume($url)
+        }
+    }
+
+    &__settings {
+        background-image: url(../../images/settings_player_icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin: 0 5px;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    &__value-volume {
+        opacity: 0;
+
+        &-active {
+            opacity: 1;
+        }
+    }
+
+
+    &__volume {
+        background-image: url(../../images/volume_icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        margin: 0 5px;
     }
 
     &__btn {
         display: none;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         background-color: #fff0;
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
         border: none;
-        margin: 8px;
-
-        &-back {
-            transform: rotate(180deg);
-        }
+        padding: 0;
+        margin: 0 4px;
 
         &-active {
             display: block;
+        }
+    }
+
+    &__box {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+
+        &-btn {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &-text {
+            flex-direction: row;
+            align-items: center;
+        }
+
+
+    }
+
+    &__text {
+        font-size: 14px;
+        color: #999999;
+        margin: 0;
+        padding: 8px 10px;
+
+        &-duration {
+            padding-right: 0;
+        }
+
+        &-name {
+            color: #000;
+            font-weight: 500;
         }
     }
 }

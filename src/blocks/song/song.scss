@@ -1,0 +1,79 @@
+.song {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &:hover .song__hud {
+        opacity: 1;
+    }
+
+    &__hud {
+        opacity: 0;
+        position: absolute;
+        background-color: rgba(153, 153, 153, 0.7);
+        width: 55px;
+        height: 55px;
+        transition: opacity 0.2s ease;
+    }
+
+    &__box {
+        display: flex;
+        align-items: center;
+
+        &-text {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 10px;
+        }
+    }
+
+    &__img {
+        width: 55px;
+        height: 55px;
+    }
+
+    &__duration {
+        color: #999999;
+        padding-top: 10px;
+        margin: 0;
+    }
+
+    &__name {
+        font-size: 18px;
+        padding-top: 5px;
+        margin: 0;
+    }
+
+    &__btn {
+        background-color: #fff;
+        width: 35px;
+        height: 35px;
+        margin-right: 8px;
+        border: none;
+        outline: none;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    &__like {
+        background-image: url(../../images/like_disabled.svg);
+
+        &:hover {
+            transform: scale(1.1, 1.1);
+        }
+
+        &-active {
+            background-image: url(../../images/like_active.svg);
+        }
+    }
+
+    &__download {
+        background-color: #000;
+    }
+}

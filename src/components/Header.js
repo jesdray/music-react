@@ -4,7 +4,6 @@ import ClickAwayListener from "react-click-away-listener";
 import { useDispatch, useSelector } from "react-redux";
 
 
-import Navbar from "./Navbar";
 import Player from "./Player";
 import { data } from "../utils/utils"
 
@@ -29,7 +28,6 @@ export default function Header() {
             <div className="header__box header__box-big">
                 <div className="header__box header__box-small">
                     <NavLink to="/" className="header__logo" ><span className="header__span">Hot-</span>Music</NavLink>
-                    <Navbar />
                     <Player
                         key='1'
                         music={data.music}
@@ -41,7 +39,7 @@ export default function Header() {
                     <ClickAwayListener onClickAway={closeMenu}>
                         <menu className={menuClass}>
                             <button className="header__menu-btn">
-                                Тема <span className="header__span">{darkThem === "light" ? 'Светлая' : 'Темная'}</span>
+                                Тема <span className="header__span">{darkThem ? 'Темная' : 'Светлая'}</span>
                             </button>
                             <NavLink to='/settings' className="header__menu-link">Настройки</NavLink>
                         </menu>

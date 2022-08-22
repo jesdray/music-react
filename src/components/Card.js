@@ -6,13 +6,9 @@ export default function Card() {
 
     return (
         <article className="card">
-            <img className="card__img" src="https://img3.akspic.ru/attachments/crops/7/4/6/0/0/100647/100647-kupol_lavy-nebo-tipy_vulkanicheskih_izverzhenij-lava-teplo-2560x1440.jpg" />
+            <img className="card__img" src="https://catherineasquithgallery.com/uploads/posts/2021-03/1614642581_60-p-fon-salyut-dlya-fotoshopa-89.jpg" />
             <div className="card__box">
                 <p className="card__name">{data.name}</p>
-                <Player
-                    key='1'
-                    music={data.music}
-                />
             </div>
         </article>
     )

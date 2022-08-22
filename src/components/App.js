@@ -2,16 +2,18 @@ import React from "react";
 import { createStore } from 'redux'
 import { Provider } from "react-redux";
 
+import { data } from "../utils/utils";
+
 import Header from "./Header";
 import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
-  
+
   localStorage.setItem('test', 1);
-  console.log(localStorage.getItem('test'));
 
   const defaultState = {
-    playListMusic: [],
+    playListMusic: data,
     darkThem: false
   }
 
@@ -32,6 +34,7 @@ function App() {
     <Provider store={store}>
       <Header />
       <Main />
+      <Footer />
     </Provider>
   );
 }

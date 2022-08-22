@@ -1,0 +1,16 @@
+.player__progress {
+    width: max-content;
+    height: 10px;
+    background-color: #E0A3A3;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 500px;
+
+    &-visual {
+        background-color: #CA4343;
+        border-radius: 5px;
+        height: 6px;
+    }
+}

@@ -7,17 +7,18 @@
 
     &__box {
         display: flex;
+        align-items: center;
 
         &-big {
             justify-content: space-between;
-            align-items: center;
-            width: 60%;
+            width: 70%;
             margin: 0 auto;
         }
 
         &-small {
-            align-items: center;
+            padding-right: 20px;
         }
+
     }
 
     &__logo {
@@ -27,6 +28,7 @@
         margin: 10px 0;
         padding: 0;
         color: #4a4a4a90;
+        width: max-content;
     }
 
     &__span {
